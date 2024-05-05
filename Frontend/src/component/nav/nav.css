@@ -1,0 +1,86 @@
+.nav-container{
+    width: 95%;
+    margin: .5rem auto;
+    padding: .4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-container .button{
+    width: 40px;
+    height: 40px;
+    /* background: red; */
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+.profile-button{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+.profile-button .search-btn{
+    font-size: 18px;
+    background: white;
+}
+.profile-button .profile{
+    background: grey;
+}
+.profile img{
+    width: 100%;
+}
+.toggle-buttons{
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .2rem;
+    border-radius: 2rem;
+    transition: .3s all;
+}
+.toggle-buttons button{
+    background: white;
+}
+.profile-button .search{
+    background: white;
+}
+.greyBtn{
+    background: grey;
+    transition: .3s all;
+}
+.logo{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "Bebas Neue", sans-serif;
+}
+.logo img{
+    width: 60px;
+}
+.login-btn{
+    padding: .6rem 1.6rem;
+    font-size: 18px;
+    background: rgb(0, 145, 255);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+}
+.logout-btn{
+    padding: .6rem 1.6rem;
+    font-size: 18px;
+    background: rgb(255, 0, 0);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+@media screen {
+    .nav-container{
+        width: 98%;
+        margin: 0rem auto;
+    }
+}

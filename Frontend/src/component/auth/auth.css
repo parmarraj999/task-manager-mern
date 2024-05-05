@@ -1,0 +1,97 @@
+.auth-container{
+    width: 100%;
+    height: 100vh;
+    background:rgba(0,0,0,.3);
+    backdrop-filter: blur(20px);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 10;
+}
+.auth-card{
+    width: 80%;
+    height: 80%;
+    background: white;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+}
+.auth-inputs{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.auth-inputs h1{
+    font-size: 18px;
+}
+.auth-inputs h1 span{
+    color: blue;
+    cursor: pointer;
+}
+.auth-img{
+    width: 100%;
+    height: 100%;
+}
+.auth-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+/* ===== login ====  */
+.form-container{
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.form-title{
+    font-size: 32px;
+}
+.form-container input{
+    width: 100%;
+    height: 48px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 0 1rem;
+    font-weight: 600;
+    font-size: 17px
+}
+.input-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+@media screen and (max-width:765px) {
+    .form-container{
+        width: 93%;
+    }
+    .auth-card{
+        height: fit-content;
+    }
+    .auth-img {
+        display: none;
+    }
+}
+.cancel-btn{
+    padding: .6rem 1.6rem;
+    font-size: 18px;
+    background: rgb(228, 228, 228);
+    border: none;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    border-radius: 6px;
+}
