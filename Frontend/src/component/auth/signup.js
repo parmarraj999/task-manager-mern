@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
 import './auth.css'
 import axios from 'axios';
-import { UserID } from '../../context/context';
+import { UserData, UserID } from '../../context/context';
 import { v4 as uuid } from 'uuid';
 
-function Signup({ setShowForm }) {
+function Signup({ setShowForm ,setForm}) {
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
@@ -39,6 +39,7 @@ function Signup({ setShowForm }) {
     .then(()=>{
       console.log("sign in")
       userID.setUserID(uuid())
+      setForm("login")
     })
     .then((err)=>{
       console.log(err)

@@ -1,56 +1,47 @@
 import React, { useContext, useState } from 'react'
 import './auth.css'
 import axios from 'axios';
-import { UserData } from '../../context/context';
+import { UserData, UserID } from '../../context/context';
 
-function Login({setShowForm}) {
+function Login({ setShowForm }) {
 
-  const [email,setEmail] = useState();
-  const [password,setPassword] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const userData = useContext(UserData);
+  const userID = useContext(UserID);
 
-  const handleEmail = (e)=>{
+  const handleEmail = (e) => {
     setEmail(e.target.value);
   }
-  const handlePassword = (e)=>{
+  const handlePassword = (e) => {
     setPassword(e.target.value);
   }
 
-  const handleLogin = ()=>{
-    axios.post("http://localhost:4000/login",{
-      email:email,
-      password:password
+  const handleLogin = () => {
+    axios.post("http://localhost:4000/login", {
+      email: email,
+      password: password
     })
-    .then(result=> {
-      console.log(result.data)
-      userData.setUserData(result.data)
-      if(result.data === "successfull"){
+      .then(result => {
+        console.log(result.data)
+        userData.setUserData(result.data)
+        userID.setUserID(result.data.uid)
         setShowForm(false)
-      }
-    })
-    .catch(err => console.log(err))
+      })
+      .catch(err => console.log(err))
   }
 
-  // useState(async()=>{
-  //   const response = await fetch("http://localhost:4000/login")
-  //   const data = await response.json();
-  //   console.log(data)
-    
-  // })
-  
-  const handleCancel = ()=>{
+  const handleCancel = () => {
     setShowForm(false)
   }
-
-  
 
   return (
     <div className='form-container' >
       <h2 className='form-title'>Log In</h2>
       <div className='input-container'>
         <h4>Email</h4>
-        <input type='text' placeholder='' onChange={handleEmail}/>
+        <input type='text' placeholder='' onChange={handleEmail} />
       </div>
       <div className='input-container'>
         <h4>Password</h4>

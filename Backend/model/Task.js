@@ -7,6 +7,7 @@ const TaskSchema = new mongoose.Schema({
     date : String,
     time:String,
     day : String,
+    userId : String,
     done : {
         type: Boolean,
         default: false

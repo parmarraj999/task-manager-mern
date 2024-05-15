@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './addTask.css'
-import { ShowAdd, UserID } from '../../context/context';
+import { ShowAdd, UserData } from '../../context/context';
 import axios from "axios"
 
 function AddTask() {
@@ -12,8 +12,6 @@ function AddTask() {
     const hour = date.getHours();
     const minute = date.getMinutes();
     const time = hour + " : " + minute;
-
-    const userId = useContext(UserID)
 
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var d = new Date();
@@ -29,8 +27,11 @@ function AddTask() {
 
     const daysName = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Nov","Dec"]
 
+    const userData = useContext(UserData)
+
     const handleAdd = ()=>{
         axios.post('http://localhost:4000/add',{
+            userId : userData.userData.uid,
             task : task,
             day : dayName,
             time:time,

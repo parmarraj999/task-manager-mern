@@ -12,7 +12,7 @@ function Auth({setShowForm}) {
       <div className='auth-card' >
         <div className='auth-inputs' >
           {
-            form === "login" ? <Login setShowForm={setShowForm}/> : <Signup setShowForm={setShowForm}/>
+            form === "login" ? <Login setForm={setForm} setShowForm={setShowForm}/> : <Signup setForm={setForm} setShowForm={setShowForm}/>
           }
           {
             form === "login" ? <h1>Don't Have Account ? <span onClick={()=>setForm("signup")}>Sign Up</span></h1> : <h1>Already Have Account ? <span onClick={()=>setForm("login")}>Log In</span></h1>

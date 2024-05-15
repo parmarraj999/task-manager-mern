@@ -17,16 +17,19 @@ app.post("/add",(req,res)=>{
     const day = req.body.day;
     const date = req.body.date;
     const time = req.body.time;
+    const uid = req.body.userId
     TaskModel.create({
         task : task,
         date : date,
         day : day,
         time : time,
+        userId: uid,
     })
 })  
 
-app.get("/get",(req,res)=>{
-    TaskModel.find()
+app.get("/get/:id",(req,res)=>{
+    const {id} = req.params;
+    TaskModel.find({ userId : id})
     .then(result=> res.json(result))
     .catch(error => res.json(error))
 })
@@ -47,6 +50,14 @@ app.put("/done/:id",(req,res)=>{
 app.put("/notdone/:id",(req,res)=>{
     const {id} = req.params;
     TaskModel.findByIdAndUpdate({_id:id},{done: false})
+    .then(result=>res.json(result))
+    .catch(err=>res.json(err))
+})
+
+app.put("/edit/:id",(req,res)=>{
+    const {id} = req.params;
+    const newTask = req.body.newTask;
+    TaskModel.findByIdAndUpdate({_id:id},{task : newTask})
     .then(result=>res.json(result))
     .catch(err=>res.json(err))
 })
@@ -88,14 +99,6 @@ app.post("/login",(req,res)=>{
     })
 })
 
-// app.post("/login",(req,res)=>{
-//     const email = req.body.email;
-//     const password = req.body.password;
-//     UserSignModel.create({
-//         email:email,
-//         password:password
-//     })
-// })
 
 app.listen(4000,()=>{
     console.log("server running on port 4000")

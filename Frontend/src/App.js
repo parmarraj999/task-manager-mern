@@ -12,6 +12,7 @@ function App() {
   const [userID, setUserID] = useState();
 
   const [userData,setUserData] = useState([]);
+  console.log(userID)
 
   return (
     <UserData.Provider value={{ userData, setUserData }}>

@@ -4,6 +4,7 @@
     margin: 0 auto;
     /* border: 1px solid red; */
     display: flex;
+    justify-content: center;
     gap: 1rem ;
     flex-wrap: wrap;
 }
@@ -125,4 +126,20 @@
 }
 .delete-task:hover{
     border: 1px solid black;
+}
+
+.preUid{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.preUid h4{
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(31, 31, 31);
+    padding: .7rem 3rem;
+    background: white;
+    border-radius: 2rem;
 }

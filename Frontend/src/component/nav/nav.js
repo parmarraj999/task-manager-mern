@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './nav.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSearch, faSun } from '@fortawesome/fontawesome-free-solid'
 import Auth from '../auth/auth'
+import { UserData, UserID } from '../../context/context'
 
 function Nav() {
 
   const [theme, setTheme] = useState(false)
   const [isLogIn, setIsLogIn] = useState(false)
   const [showForm ,setShowForm] = useState(false)
+
+  const userData = useContext(UserData);
+  const userID = useContext(UserID);
+
+  console.log(userData.userData)
 
   return (
     <div className='nav-container' >
@@ -24,12 +30,12 @@ function Nav() {
         </div>
       </div>
       <div className='profile-button' >
-        <button className='button profile' >
-          <img src='../image/profile.png' />
-        </button>
         {
-          isLogIn ?
-            <button className='logout-btn' >Log Out</button> :
+          userData.userData.name ?
+            <button className='logout-btn' onClick={()=>{
+              userData.setUserData("")
+              userID.setUserID("");
+            }} >Log Out</button> :
             <button className='login-btn' onClick={()=>setShowForm(true)} >Log In</button>
         }
       </div>

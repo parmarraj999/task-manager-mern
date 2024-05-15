@@ -8,7 +8,7 @@ function Header() {
 
   const addForm = useContext(ShowAdd)
   const userData = useContext(UserData);
-  const userName = userData.userData.name
+  const userName = userData.userData?.name
 
   return (
     <div className='header-container' >
