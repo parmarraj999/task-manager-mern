@@ -29,7 +29,7 @@ function TaskContainer() {
   const [count,setCount] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/get/" + uid)
+    axios.get("https://task-manager-mern-5lw5.onrender.com/get/" + uid)
       .then((result) => {
         setData(result.data)
         // console.log(result.data)
@@ -38,19 +38,19 @@ function TaskContainer() {
   },[data])   
 
   const handleDelete = (id) => {
-    axios.delete("http://localhost:4000/delete/" + id)
+    axios.delete("https://task-manager-mern-5lw5.onrender.com/delete/" + id)
       .then((res) => console.log(res))
       .catch((err) => console.log(err))
       setCount((c)=>c+1)
   }
 
   const handleDone = (id) => {
-    axios.put("http://localhost:4000/done/" + id)
+    axios.put("https://task-manager-mern-5lw5.onrender.com/done/" + id)
       .then((res) => console.log(res))
       .catch((err) => console.log(err))
   }
   const handleNotDone = (id) => {
-    axios.put("http://localhost:4000/notdone/" + id)
+    axios.put("https://task-manager-mern-5lw5.onrender.com/notdone/" + id)
       .then((res) => console.log(res))
       .catch((err) => console.log(err))
   }

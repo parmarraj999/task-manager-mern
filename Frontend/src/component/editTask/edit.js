@@ -11,7 +11,7 @@ function Edit({setShowEdit,currentTask,time,date,id}) {
 
     const handleEdit = (id)=>{
         if(newTask !== ""){
-            axios.put('http://localhost:4000/edit/' + id,{
+            axios.put('https://task-manager-mern-5lw5.onrender.com/edit/' + id,{
                 newTask : newTask
             })
             .then((res)=>{

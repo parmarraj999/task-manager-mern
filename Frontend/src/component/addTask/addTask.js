@@ -30,7 +30,7 @@ function AddTask() {
     const userData = useContext(UserData)
 
     const handleAdd = ()=>{
-        axios.post('http://localhost:4000/add',{
+        axios.post('https://task-manager-mern-5lw5.onrender.com/add',{
             userId : userData.userData.uid,
             task : task,
             day : dayName,

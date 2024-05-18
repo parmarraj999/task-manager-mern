@@ -53,7 +53,7 @@ function Signup({ setShowForm ,setForm}) {
   const date = new Date();
 
   const handleSignup = () => {
-    axios.post("http://localhost:4000/signup", {
+    axios.post("https://task-manager-mern-5lw5.onrender.com/signup", {
       uid: uuid(),
       name: name,
       email: email,
