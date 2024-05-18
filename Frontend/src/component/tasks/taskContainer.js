@@ -6,8 +6,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import Edit from '../editTask/edit'
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 function TaskContainer() {
+
+  useGSAP(()=>{
+    gsap.from(".task",{
+      opacity:0,
+      duration:.7,
+      stagger:1
+    })
+  })
 
   const addForm = useContext(ShowAdd)
 
@@ -16,6 +26,8 @@ function TaskContainer() {
   const userID = useContext(UserID);
   const uid = userID.userID;
 
+  const [count,setCount] = useState(0);
+
   useEffect(() => {
     axios.get("http://localhost:4000/get/" + uid)
       .then((result) => {
@@ -23,12 +35,13 @@ function TaskContainer() {
         // console.log(result.data)
       })
       .catch(error => console.log(error))
-  },[uid])   
+  },[data])   
 
   const handleDelete = (id) => {
     axios.delete("http://localhost:4000/delete/" + id)
       .then((res) => console.log(res))
       .catch((err) => console.log(err))
+      setCount((c)=>c+1)
   }
 
   const handleDone = (id) => {

@@ -3,8 +3,32 @@ import './auth.css'
 import axios from 'axios';
 import { UserData, UserID } from '../../context/context';
 import { v4 as uuid } from 'uuid';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 function Signup({ setShowForm ,setForm}) {
+
+  useGSAP(()=>{
+    gsap.from("input",{
+      y:-50,
+      opacity:0,
+      stagger:.5
+    })
+    gsap.from(".input-container > h4",{
+      opacity:0,
+      stagger:.5
+    })
+    gsap.from(".login-btn",{
+      x:-30,
+      opacity:0,
+      delay:2
+    })
+    gsap.from(".cancel-btn",{
+      x:30,
+      opacity:0,
+      delay:2
+    })
+  })
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();

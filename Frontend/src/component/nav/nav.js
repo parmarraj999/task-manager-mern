@@ -21,14 +21,14 @@ function Nav() {
       <div className='logo' >
         <img src='../../image/tm-logo.png' />
       </div>
-      <div className='toggle-buttons' >
+      {/* <div className='toggle-buttons' >
         <div style={theme ? { background: "rgb(255, 255, 255)" } : { background: "rgb(205, 205, 205)" }} className='button' onClick={() => setTheme(false)} >
           <FontAwesomeIcon icon={faMoon} />
         </div>
         <div style={theme ? { background: "rgb(205, 205, 205)" } : { background: "rgb(255, 255, 255)" }} className='button' onClick={() => setTheme(true)}>
           <FontAwesomeIcon icon={faSun} />
         </div>
-      </div>
+      </div> */}
       <div className='profile-button' >
         {
           userData.userData.name ?

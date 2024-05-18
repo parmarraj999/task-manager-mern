@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27017/tm-data")
+mongoose.connect("mongodb+srv://rajraja5122:Forget5122@taskmanagercluster.z5xcv8a.mongodb.net/tm-data")
 
 app.post("/add",(req,res)=>{
     const task = req.body.task;
